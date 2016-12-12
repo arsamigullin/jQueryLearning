@@ -1,0 +1,26 @@
+<html>
+<head>
+<script type ="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+<script type ="text/javascript" src="C:\Users\Albert\Documents\Education\Jquery\AuthoringPlugin\emphasize.js"></script>
+<title></title>
+
+</head>
+
+<body>
+
+<script type ="text/javascript">
+
+// now we can override our defaults values
+$.fn.emphasize.defaults.backColor = 'red';
+
+	$(function(){
+
+		$('div').emphasize();
+	});
+</script>
+
+<h1>Options Example</h1>
+<div id = "div1">This is some content that I can emphasize</div>
+</body>
+
+</html>

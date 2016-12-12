@@ -1,0 +1,31 @@
+<html>
+<head>
+<script type ="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+<title></title>
+
+</head>
+
+<body>
+
+<script type ="text/javascript">
+// Applies when you want to change JQuery functions
+		var eventHandlers = {
+			 type : "My Event Handler Object",
+			 clickButtonHandler : function(event) {
+				console.log(this.type);
+			 }
+		}
+$(function() {
+	// This code will output button, because button will be as context
+	$("#clickme").click(eventHandlers.clickButtonHandler);
+	
+	// To redefine context object we need do following
+	$("#clickme").click($.proxy(eventHandlers.clickButtonHandler, eventHandlers));
+
+});
+</script>
+<h1>Proxy demo</h1>
+<input id = "clickme" type = "button" value = "click me"></input>
+</body>
+
+</html>

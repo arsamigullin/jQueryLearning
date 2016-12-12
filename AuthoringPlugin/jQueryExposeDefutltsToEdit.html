@@ -1,0 +1,54 @@
+<html>
+<head>
+<script type ="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+
+<title></title>
+
+</head>
+
+<body>
+
+<script type ="text/javascript">
+
+	// we can pass parameters to IIFE Immediately Invoked Function Expression
+	// To provoid chainbility we can return
+	// this
+	// each()
+	// pushStack()
+	(function($){
+		$.fn.myPlugin = function(options){
+		debugger;
+			var defaults = {
+				option1: 'default1',
+				option2: 'default2',
+				option3: 'default3'
+			}
+			var settings = {};
+			// To avoid some kind of checking we can use extend function
+			// It will be extand settings object with defaults and options
+			// if value inside option object is not set then extend function will be take value from default object
+			$.extend(true, settings, this.myPlugin.defaults, options);
+		
+          return this;
+		}
+		
+		$.fn.myPlugin.defaults = {
+			option1: 'default1',
+			option2: 'default2',
+			option3: 'default3'
+		}
+	})(jQuery);
+	
+	$.fn.myPlugin.defaults.option3= 'new default 3';
+	
+	$(function(){
+		$('div').myPlugin({option1:'new default'});
+	});
+</script>
+
+<h1>JQuery Plugin</h1>
+<div id = "div1">A Div</div>
+<div id = "div2">Another div</div>
+</body>
+
+</html>

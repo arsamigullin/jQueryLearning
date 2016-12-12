@@ -1,0 +1,108 @@
+<html>
+<head>
+<script type ="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+<title></title>
+
+</head>
+
+<body>
+
+<script type ="text/javascript">
+
+//----------------------Simple extnding------------------
+		  var animal= {
+			eat: function (){
+			console.log("I'm eating");
+		  }
+		  }
+			var dog = {
+			bark: function() {
+			console.log("I'm barking");
+			}
+		  }
+	
+		 var cat = {
+			meow: function(){
+				console.log("meow")
+				}
+			}
+			
+		dog.bark();
+		console.log(dog.eat);
+		
+		$.extend(dog, animal);
+		dog.eat();
+		// after override function from source object 
+		animal.eat= function () {
+			console.log("I'm still eating");
+		}
+		// the same function in the target object will not override and it will have old implementation
+		animal.eat(); // I'm still eating
+		dog.eat(); // I'm eating
+		
+//---------------------------------Extending from multiple objects----------------------		
+		 animal= {
+			eat: function (){
+			console.log("I'm eating");
+		  }
+		  }
+	     dog = {
+			bark: function() {
+			console.log("I'm barking");
+			}
+		  }
+	
+		  cat = {
+			meow: function(){
+				console.log("meow")
+				}
+			}
+		
+		var catdog = {}
+		
+		$.extend(catdog, dog, cat, animal);
+		
+		catdog.eat(); //I'm eating
+		catdog.bark(); //I'm barking
+		catdog.meow(); // meow
+		
+
+		  
+///---------------------------------Deep Extending---------------
+		console.log("Deep Extending");
+		 animal= {
+			actions:{
+				eat: function (){console.log("I'm eating");},
+				sit: function (){console.log("I'm sitting");}
+			}
+		  }
+		  
+	     dog = {
+			actions:{
+				bark: function (){console.log("I'm barking");},
+				dig: function (){console.log("I'm digging");}
+			}
+		  }
+		  
+		  dog.actions.bark(); //I'm barking
+		  dog.actions.dig(); //I'm digging
+		  $.extend(dog, animal);
+		  dog.actions.eat(); //I'm eating
+		  dog.actions.sit(); //I'm sitting
+		  // In this case dog can't barking
+		  console.log(dog.actions.bark); // undefined
+		  
+		  $.extend(true, dog, animal);
+		  dog.actions.eat(); //I'm eating
+		  dog.actions.sit(); //I'm sitting
+		  dog.actions.bark(); //I'm barking
+		  dog.actions.dig(); //I'm digging
+		  
+	
+  
+  
+</script>
+<h1>Extend demo</h1>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<html>
+<head>
+<script type ="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+<style>
+	div { width: 200; margin: 3; padding: 5 }
+</style>
+<title></title>
+
+</head>
+
+<body>
+
+<script type ="text/javascript">
+// There are quite a few of them and they add all kinds of useful functionality, but there are times when we need to create our own utility functions. 
+ //Now, we can just create function on a page and call it, or we can be a little cleaner and create a utilities object and put all of our utility functions inside that, 
+ //but sometimes it makes sense to create a utility function and attach it to jQuery, either because internally
+ //it may call some other jQuery methods, or perhaps it just makes sense to us. So, we're going to learn to create our own utility methods and make them part of jQuery. 
+ // So, the basic pattern is to use an IIFE just like we did with selectors, and 
+ // IIFE - Immediately-Invoked Function Expression
+	(function($){
+		$.log = function (value){
+			if (console)
+				console.log(value);
+		}
+		$.log.group = function (value) {
+			 if (console && console.group)
+				console.group(value);
+		}
+		$.log.groupEnd = function(){
+			 if (console && console.group)
+				console.groupEnd();
+		}
+		})(jQuery);
+
+	$(function() {
+		$.log.group('my group');
+		$.log('hi there');
+		$.log($("div"));
+		$.log.groupEnd();
+		$.log($("div")[0].innerHTML);
+	});
+</script>
+<h1>Adding Utility Funcion demo</h1>
+<div>Div 1</div>
+<div>Div 2</div>
+</body>
+
+</html>

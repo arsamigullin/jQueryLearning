@@ -1,0 +1,45 @@
+<html>
+<head>
+<script type ="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+
+<title></title>
+
+</head>
+
+<body>
+
+<script type ="text/javascript">
+
+var loaded = false;
+$.holdReady(true);
+		// Now, getScript, which we learned a few minutes ago, is just a shorthand for jQuery's ajax function
+        //So, like all ajax calls, it's nonblocking
+		$.getScript("C:\\Users\\Albert\\Documents\\Education\\Jquery\\plugin.js", function (data, textStatus){
+		console.log(textStatus);
+		});
+		function printPluginReady (){
+		if (loaded)
+		{
+		$("#output").append("<br /> Plugin loaded")
+		}
+		else
+		{
+		$("#output").append("<br /> Plugin not loaded")
+		}
+		};
+$(function()
+{
+$("#output").append("jQuery ready event firing");
+printPluginReady();
+$("#output").click(printPluginReady);
+}
+);
+</script>
+
+<h1>HoldReady Demo</h1>
+<h3>HoldReady Demo</h3>
+<div id="output" style="background-color: yellow"></div>
+
+</body>
+
+</html>

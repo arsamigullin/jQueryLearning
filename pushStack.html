@@ -1,0 +1,41 @@
+<html>
+<head>
+<script type ="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+<title></title>
+
+</head>
+
+<body>
+
+<script type ="text/javascript">
+
+$(function() {
+$.fn.everyThird= function (){
+		var arr = [];
+		//The pushStack function is typically used within a jQuery plugin.
+		//It allows us to take a plain JavaScript array of DOM nodes and push them onto the jQuery stack in a stacked chain.
+$.each(this, function(idx, item){
+		if (idx%3==0)
+			arr.push(item);
+	 });
+	 return this.pushStack(arr, "everyThird", "");
+	}
+	
+	$("#clickme").click(function(){
+		$("div").everyThird().css("color", "Red").end().css("font-weight","bold");
+	});
+});
+</script>
+<h1>Push stack demo</h1>
+<input id="clickme" type="button" value="click me"/>
+<div id ="out1">1</div>
+<div id ="out2">2</div>
+<div id ="out3">3</div>
+<div id ="out4">4</div>
+<div id ="out5">5</div>
+<div id ="out6">6</div>
+<div id ="out7">7</div>
+
+</body>
+
+</html>

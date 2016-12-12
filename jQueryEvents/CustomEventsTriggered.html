@@ -1,0 +1,35 @@
+<html>
+<head>
+<script type ="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+<title></title>
+
+</head>
+
+<body>
+
+<script type ="text/javascript">
+
+	var  trafficLight ={};
+	var  car ={};
+	
+
+	
+	$(function(){
+		car.lightGreen = function (){
+			console.log('car want to green');
+		}
+		// there is no green event in the trafficLight object 
+		// But we added handler for this event
+		$(trafficLight).on("green", car.lightGreen);
+		// jquery allows trigger custom events
+		$(trafficLight).trigger("green");
+		
+	});
+</script>
+
+<h1>Custom events triggered example</h1>
+<div id = "div1" style="height:100px; width:200px; border: 1px solid black"></div>
+
+</body>
+
+</html>

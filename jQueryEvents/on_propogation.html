@@ -1,0 +1,51 @@
+<html>
+<head>
+<script type ="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+<title></title>
+
+</head>
+
+<body>
+
+<script type ="text/javascript">
+
+	function handler1(e){
+	debugger;
+		console.log('clicked1');
+		if ($('#stopDefault').attr('checked')){
+			e.preventDefault();
+		}
+		if ($('#stopPropagation').attr('checked')){
+			e.stopPropagation();
+		}
+		if ($('#stopPropagationImmediate').attr('checked')){
+			e.stopPropagationImmediate();
+		}
+	}
+	
+	function handler2(e) {
+	debugger;
+		console.log('clicked 2');
+	}
+
+	$(function(){
+	debugger;
+		$('#myLink').on('click', handler1);
+		$('#myLink').on('click', handler2);
+		$('#div1').on('click', function(){
+			console.log('clicked the div')
+		});
+	});
+</script>
+
+<h1>Propogation and Bubbling Example</h1>
+<div id = "div1" style="height:100px; width:200px; border: 1px solid black">
+	<a id="myLink" href="">Pluralsight</a>
+</div>
+<input id="stopDefault" type="checkbox">Prevent Default</input>
+<input id="stopPropagation" type="checkbox">Prevent stopPropagation</input>
+<input id="stopPropagationImmediate" type="checkbox">Prevent stopPropagationImmediate</input>
+
+</body>
+
+</html>

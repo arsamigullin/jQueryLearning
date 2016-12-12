@@ -1,0 +1,50 @@
+<html>
+<head>
+<script type ="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+<title></title>
+
+</head>
+
+<body>
+
+<script type ="text/javascript">
+// Applies when you want to change JQuery functions
+$(function() {
+	 var animal = {
+		eat: function() {console.log("I'm eating");}
+	 }
+	 
+	 var dog = {
+		bark: function() {console.log("I'm barking");}
+	 } 
+	 
+	 var cat = {
+		meow: function() {console.log("meow");}
+	 } 
+	 // In this case we redefine extend function and set only two input parameters instead of multiple parameters
+	 var sub = $.sub();
+	 sub.old_extend = sub.extend;
+	 sub.extend = function (target, source) {return sub.old_extend(true, target, source);}
+	 
+	 var catDog = {};
+	 // Third and fourth parameters will be ignored
+	 sub.extend(catDog, cat, dog, animal);
+	 console.log(catDog.eat); // indefined
+	 console.log(catDog.bark);// indefined
+	 console.log(catDog.meow); // function
+	 
+	 var catDog = {};
+	 // Original extend function will be pay attention to third and fourth paramaters
+	 $.extend(catDog, cat, dog, animal);
+	 console.log(catDog.eat);// function
+	 console.log(catDog.bark);// function
+	 console.log(catDog.meow);// function
+	 
+	 
+});
+</script>
+<h1>Sub demo</h1>
+
+</body>
+
+</html>

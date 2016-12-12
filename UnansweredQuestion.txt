@@ -1,0 +1,1 @@
+1.There is undestandable call In the Name Spaces video Lesson (I mean arguments and Array.slice and something like that)

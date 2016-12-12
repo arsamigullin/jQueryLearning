@@ -1,0 +1,34 @@
+<html>
+<head>
+<script type ="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+<title></title>
+
+</head>
+
+<body>
+
+<script type ="text/javascript">
+
+	// jQuery has fx object which exposes speeds object
+	// We can add new value to that by specifying a new property and giving a new duration in miliseconds
+	$.fx.speeds.slower = 2000;
+	$.fx.speeds.ludicrous = 100;
+	$(function() {
+		$("#fadingDiv").click(function(){
+				$(this).fadeOut($("input:radio[name=group1]:checked").val(), function(){
+					$(this).show();
+				});
+			});
+		});
+</script>
+<h1>Custom speed demo</h1>
+<input type = "radio" name = "group1" checked value="slower"></input>Slower
+<input type = "radio" name = "group1" checked value="slow"></input>Slow
+<input type = "radio" name = "group1" checked value=""></input> Normal
+<input type = "radio" name = "group1" checked value="fast"></input>Fast
+<input type = "radio" name = "group1" checked value="ludicrous"></input>Ludicrous
+
+<div id = "fadingDiv" style="background-color :green; width: 400px; height: 200px;"/>
+</body>
+
+</html>

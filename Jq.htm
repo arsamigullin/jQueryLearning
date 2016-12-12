@@ -1,0 +1,48 @@
+
+<div align="left"><html>
+
+<head>
+<script type ="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+<title></title>
+
+</head>
+
+<body>
+
+<script type ="text/javascript">
+function callAnotherFunction(times, delay, funcToCall)
+{
+   var i        = 0;
+   (function loopit()
+   {
+      i ++ ;
+      funcToCall();
+      if (i < times)
+      {
+         setTimeout(loopit, delay);
+      }
+   }
+   )();
+}
+
+function functionToCall ()
+{
+   $("#output").append("<br /> function called");
+}
+
+jQuery(function()
+{
+   callAnotherFunction(3, 500, functionToCall);
+}
+);
+</script>
+
+<h1>Type Test Functions Demo</h1>
+
+<div id ="output">
+
+</div>
+</body>
+
+</html>
+<div align="left"></div></div>

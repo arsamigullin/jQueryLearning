@@ -1,0 +1,34 @@
+<html>
+<head>
+<script type ="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+
+<title></title>
+
+</head>
+
+<body>
+
+<script type ="text/javascript">
+
+$(function()
+{
+	$("input").click(function(){
+		//pulls back is immediately executed as JavaScript, so you only want to point this at URLs that will return JavaScript. Calling it is very simple. You pass in a string URL and an optional sucessCallback function. 
+		//Let's look at an example. I'm going to start by creating a script file that simply has an alert in it. 
+		$.getScript("C:\\Users\\Albert\\Documents\\Education\\Jquery\\script.js", function (data, textStatus){
+		console.log(textStatus);
+		});
+	});
+	
+	$("#clickme").ajaxError(function(event, jqXHR, ajaxSettings, thrownError){
+	  console.log(thrownError);
+	});
+}
+);
+</script>
+
+<h1>Get Script Demo</h1>
+<input id= "clickme" type="button" value= "click me"/>
+</body>
+
+</html>
