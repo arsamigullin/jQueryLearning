@@ -1,0 +1,10 @@
+/*SELECTOR*/
+  H1{
+    color:blue; /* declaration. Poperty is color, value is blue*/
+  }
+BODY{
+  /*color:red;*/
+  font-family: "Gill Sans", sans-serif;
+  font-size: 12pt;
+  margin: 3em;
+}
