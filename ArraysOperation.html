@@ -1,65 +1,74 @@
+<div align="left">
+    <html>
 
-<div align="left"><html>
+    <head>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+        <title></title>
 
-<head>
-<script type ="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
-<title></title>
+    </head>
 
-</head>
+    <body>
 
-<body>
+        <script type="text/javascript">
+            var myArray = [1, 2, 3, 3, 4, 4, 5];
+            var myArray2 = [6, 7, 8];
 
-<script type ="text/javascript">
-var myArray= [1,2,3,3,4,4,5];
-var myArray2= [6,7,8];
+            var res = myArray.pop();
 
-if ($.inArray(4, myArray)!=-1)
-{
-console.log("4 is in array");
-}
+            var data = {234:1, 4235:2};
+            var t = data["234"];
+            if (data["777"])
+            {
+                data["777"]+=7;
+            }
+            else
+            {
+                data["777"]=0;
+            }
 
-if ($.inArray(44, myArray)!=-1)
-{
-console.log("44 is in array");
-}
+            if ($.inArray(4, myArray) != -1) {
+                console.log("4 is in array");
+            }
 
-$.unique(myArray);
-console.log(myArray);
+            if ($.inArray(44, myArray) != -1) {
+                console.log("44 is in array");
+            }
 
-$.merge(myArray, myArray2);
-console.log(myArray);
-// The map function lets us iterate over a collection of items in a wrapped set, and run a function whose return value will replace each item in a collection
-var newArray= $.map(myArray, function (intem, idx)
-{
-return intem*2;
-});
+            $.unique(myArray);
+            console.log(myArray);
 
-console.log(newArray);
+            $.merge(myArray, myArray2);
+            console.log(myArray);
+            // The map function lets us iterate over a collection of items in a wrapped set, and run a function whose return value will replace each item in a collection
+            var newArray = $.map(myArray, function (intem, idx) {
+                return intem * 2;
+            });
+
+            console.log(newArray);
 
 
-//This function takes an array of items and a filter function and returns a new array that contains only the elements of the original array that passed the filter function. 
-var greppedArray= $.grep(myArray, function(item)
-{
-return item%2==0;
-}
-);
-console.log(greppedArray);
-$(function()
-{
-console.log($.makeArray($("div")));
+            //This function takes an array of items and a filter function and returns a new array that contains only the elements of the original array that passed the filter function. 
+            var greppedArray = $.grep(myArray, function (item) {
+                return item % 2 == 0;
+            }
+            );
+            console.log(greppedArray);
+            $(function () {
+                console.log($.makeArray($("div")));
 
-}
-);
-</script>
+            }
+            );
 
-<div id ="out1">1</div>
-<div id ="out2">2</div>
-<div id ="out3">3</div>
-<div id ="out4">4</div>
-<div id ="out5">5</div>
-<div id ="out6">6</div>
-<div id ="out7">7</div>
+        </script>
 
-</body>
+        <div id="out1">1</div>
+        <div id="out2">2</div>
+        <div id="out3">3</div>
+        <div id="out4">4</div>
+        <div id="out5">5</div>
+        <div id="out6">6</div>
+        <div id="out7">7</div>
 
-</html>
+    </body>
+
+    </html>

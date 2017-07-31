@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <select id="SelectTest"></select>
+    <input id="startTest" type="button" value="Hey, press me!" onclick="clickToButton()"></input>
+    <title>My Sample Project</title>
+    <!-- data-main attribute tells require.js to load
+             scripts/main.js after require.js loads. -->
+    <script src="scripts/require.js"></script>
+    <script src="scripts/main.js"></script>
+    <script>
+        requirejs.config({
+            //By default load any module IDs from js/lib
+            baseUrl: 'scripts',
+            //except, if the module ID starts with "app",
+            //load it from the js/app directory. paths
+            //config is relative to the baseUrl, and
+            //never includes a ".js" extension since
+            //the paths config could be for a directory.
+        });
+
+        window.onload = function () {
+            var selectOfTests = document.getElementById("SelectTest");
+            var arr = [
+                { name: "Closure mistaken value", value: "closures/closureinaloop/closureInAloopMistake" },
+                { name: "Object Declaration And This Keyword", value: "objects/beautefulDeclarationAlsoThisKeyWordOpt1" },
+                { name: "Apply and Call Examples", value: "objects/ApplyCallExamples" },
+                { name: "Balanced Brackets", value: "problemsolving/BalancedBracket" }
+            ];
+            for (let i = 0; i < arr.length; i++) {
+                var option = document.createElement("option");
+                option.text = arr[i].name;
+                option.value = arr[i].value;
+                selectOfTests.add(option);
+            }
+        }
+
+        function clickToButton() {
+            var selectOfTests = document.getElementById("SelectTest");
+            var nameModuleOfTest = selectOfTests.options[selectOfTests.selectedIndex].value;
+            requirejs([nameModuleOfTest], function (nameModuleOfTest) {
+            });
+        }
+    </script>
+</head>
+
+
+<body>
+    <p id="help">Helpful notes will appear here</p>
+    <p>E-mail: <input type="text" id="email" name="email"></p>
+    <p>Name: <input type="text" id="name" name="name"></p>
+    <p>Age: <input type="text" id="age" name="age"></p>
+</body>
+
+</html>

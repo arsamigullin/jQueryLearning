@@ -1,0 +1,34 @@
+<!--Languages such as Java provide the ability to declare methods private, meaning that they can only be called by other methods in the same class.-->
+<html>
+    <head>
+ <script type ="text/javascript">
+           window.onload = function(){
+               var Counter =  (function(){
+                    var internalcounter=0;
+                    function changeVal(val){
+                       internalcounter+=val
+                    }
+                    return {
+                        value: function(){
+                            return internalcounter;
+                        },
+                        increment: function(val){
+                            changeVal(val);
+                        },
+                        decrement: function(val){
+                            changeVal(-val);
+                        }
+                    }
+                })();
+                alert(Counter.value());
+                Counter.decrement(1);
+                alert(Counter.value());
+                Counter.increment(1);
+                alert(Counter.value());
+           }
+        </script>
+    </body>
+    </head>
+    <body>
+       
+</html>

@@ -1,0 +1,20 @@
+.magnify{
+    margin: 50px auto;
+    position: relative
+    }
+.large{
+    width :180px;
+    height: 180px;
+    position: absolute;
+    border-radius: 100%;
+    background : url('http://www.google.com/logos/2011/worldsfair11-hr.jpg') no-repeat;
+    display: none;
+}    
+
+.large>img {
+    margin: -10px;
+}
+
+.small{
+    display: block;
+}

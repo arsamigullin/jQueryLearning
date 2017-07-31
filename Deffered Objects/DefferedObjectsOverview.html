@@ -24,14 +24,22 @@
 		// During creation
 		// During execution
 		// After operation is completed
-
+var deffered = $.Deferred();
+deffered.done(function(){condole.log('resolved')});
+deffered.fail(function(){condole.log('reject')});
+deffered.always(function(){condole.log('reject')});
 	$(function(){
-
-		$('div').emphasize();
+		$("#btnResolve").click(function(){deffered.resolve();});
+		$("#btnReject").click(function(){deffered.reject();});
+				$("#btnReport").click(function(){console.log(deffered.state());});
+		//$('div').emphasize();
 	});
 </script>
 
 <h1>Options Example</h1>
+<input id ="btnResolve" type="button" value="Resolve"/>
+<input id ="btnReject" type="button" value="Reject"/>
+<input id ="btnReport" type="button" value="Report State"/>
 </body>
 
 </html>
